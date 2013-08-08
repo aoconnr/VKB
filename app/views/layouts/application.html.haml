@@ -1,0 +1,33 @@
+!!!
+%html.no-js
+  %head
+    %title #{ yield(:title) } - Rails Sample
+    -# Uncomment the line below for mobile views
+    -# %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    = stylesheet_link_tag    :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-inverse
+      %a.navbar-brand{:href => "#"} VKB
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} Home
+        %li
+          %a{:href => "#"} Link
+        %li
+          %a{:href => "#"} Link
+              
+    .container#wrapper
+      .row#main-content
+        - flash.each do |name, msg|
+          .alert.fade.in{ class: "alert-#{ name == :notice ? 'success' : 'error' }" }
+            %a.close{ data: { dismiss: :alert } } &times;
+            = msg
+        .span12
+          = yield
+        
+      %footer.footer
+        %hr
+        &copy; #{Date.today.year} 
