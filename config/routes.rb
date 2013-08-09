@@ -1,8 +1,11 @@
 VKB::Application.routes.draw do
 
   resources :pages
+  resources :items
   
   root to: 'pages#index'
+
+  match '/admin', to: 'pages#admin'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,101 +1,25 @@
-.sidebar
-
-
+%h1 Vintage Kiity Boutique
+%br 
+/ change to padding
 .col-lg-2
   .sidebar
     %ul.nav.well
       //TODO get this styling out of here
       %div{:style => 'margin-left: 10px;'}
         %li.h4.a{:href => '#'} Text
-        %li test2
-        %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
-        / %li text3
+        -size = 1
+        -while size < 20 do
+          %li 
+          = size += 1
         
 
 .row.col-lg-10
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
-  .col-lg-2
-    %a.thumbnail{:href => "#"}
-      =image_tag("templateimg.png")
-    .caption
-      %h5 Item Description
-      £££££££££
+  - $num = 1
+  - while $num < 20 do
+    .col-lg-2
+      %a.thumbnail{:href => "#"}
+        =image_tag("templateimg.png")
+      .caption
+        %h5 Item Description
+        £££££££££
+      - $num += 1 

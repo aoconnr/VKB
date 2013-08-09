@@ -1,7 +1,10 @@
 !!!
-%html.no-js
+%html
+  / .no-js
   %head
-    %title #{ yield(:title) } - Rails Sample
+    %title VKB
+    = #favicon_link_tag 'favicon.ico'
+    %link{:href => "/favico.ico", :rel => "shortcut icon"}/
     -# Uncomment the line below for mobile views
     -# %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
     = stylesheet_link_tag    :application
