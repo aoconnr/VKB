@@ -27,7 +27,15 @@ test:
   password: 
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: vkb
+  host: localhost
   pool: 5
-  timeout: 5000
+  username: andrew
+  password:
+  # adapter: sqlite3
+  # database: db/production.sqlite3
+  # pool: 5
+  # timeout: 5000

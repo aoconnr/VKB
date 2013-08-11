@@ -1,4 +1,4 @@
-%h1 Vintage Kiity Boutique
+%h1 Vintage Kitty Boutique
 %br 
 / change to padding
 .col-lg-2
@@ -14,12 +14,11 @@
         
 
 .row.col-lg-10
-  - $num = 1
-  - while $num < 20 do
+  - @items.each do |item|
     .col-lg-2
       %a.thumbnail{:href => "#"}
         =image_tag("templateimg.png")
       .caption
-        %h5 Item Description
-        £££££££££
-      - $num += 1 
+        %h5 
+          = item.name
+        = item.price

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def index
-		render
+		@items = Item.all
 	end
 
   def admin
