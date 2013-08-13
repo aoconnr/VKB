@@ -16,7 +16,6 @@ class ItemsController<ApplicationController
 
   def create
     @item = Item.new(params[:item])
-
     if @item.save
       redirect_to items_path, notice: 'Item was successfully created.'
     else
@@ -30,8 +29,7 @@ class ItemsController<ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
-    if @item.update_attributes(params[:assessment])
+    if @item.update_attributes(params[:item])
       redirect_to items_path, notice: 'Item was successfully updated.'
     else
       render action: "edit"

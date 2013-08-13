@@ -14,7 +14,8 @@
         %td
           = item.description
         %td
-          = item.price
+          = currency_symbol
+          = item.cost
         %td.actions
           = link_to item, class: 'btn btn-info btn-mini', title: "View Item" do
             %i.icon-eye-open.icon-white
