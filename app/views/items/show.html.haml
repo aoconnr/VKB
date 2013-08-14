@@ -1,11 +1,8 @@
 %h1
   = @item.name
 
-%h3
-  Description
-
 %p
-  = @item.description
+  = link_to image_tag("/uploads/#{@item.id}/#{File.basename(@item.image.url)}"), @item
   %br
   = currency_symbol
-  = item.cost
+  = @item.cost

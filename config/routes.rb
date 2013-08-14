@@ -6,6 +6,8 @@ VKB::Application.routes.draw do
   root to: 'pages#index'
 
   match '/admin', to: 'pages#admin'
+
+  match "/uploads/:id/:basename.:extension", :controller => "items", :action => "download", :conditions => { :method => :get }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

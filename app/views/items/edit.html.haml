@@ -4,7 +4,10 @@
     %legend Item Details
     .form-inputs
       = f.input :name
-      = f.input :description
+      current image:
+      %br
+      = image_tag("/uploads/#{@item.id}/thumb_#{File.basename(@item.image.url)}")
+      = f.input :image
       = f.input :price 
 
   .form-actions

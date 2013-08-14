@@ -1,9 +1,8 @@
 %h1 Item index
-
 %table#display.table.table-striped
   %thead
     %th Name
-    %th Description
+    %th Image
     %th Price
     %th 
   %tbody
@@ -12,7 +11,7 @@
         %td 
           = item.name
         %td
-          = item.description
+          = link_to image_tag("/uploads/#{item.id}/thumb_#{File.basename(item.image.url)}"), item
         %td
           = currency_symbol
           = item.cost

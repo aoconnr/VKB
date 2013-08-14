@@ -20,6 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'gon'
+gem 'carrierwave'
+gem 'mini_magick'
+
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'haml-rails'

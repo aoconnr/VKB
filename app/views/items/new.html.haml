@@ -1,10 +1,10 @@
 %h1 New Item
-= simple_form_for @item do |f|
+= simple_form_for(@item, :defaults => { :input_html => { :class => 'input-xxlarge' } }, :html => {:multipart => true}) do |f|
   %fieldset.form-horizontal
     %legend Item Details
     .form-inputs
       = f.input :name
-      = f.input :description
+      = f.input :image
       = f.input :price
 
   .form-actions

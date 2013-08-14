@@ -41,4 +41,14 @@ class ItemsController<ApplicationController
     @item.destroy
     redirect_to items_path, notice: "item deleted"
   end
+
+  def download
+    @item = Item.find(params[:id])
+    if params[:basename].to_s.include? "thumb" 
+      path = "#{Rails.root}/uploads/#{@item.id}/thumb_#{File.basename(@item.image.url)}"
+    else
+      path = "#{Rails.root}/uploads/#{@item.id}/#{File.basename(@item.image.url)}"
+    end
+    send_file path, :x_sendfile=>true
+  end
 end
