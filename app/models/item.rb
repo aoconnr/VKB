@@ -1,6 +1,6 @@
 #coding: utf-8
 class Item < ActiveRecord::Base
-  attr_accessible :image, :name, :price
+  attr_accessible :image, :name, :price, :category_id, :type_id
   mount_uploader :image, ImageUploader
 
   before_destroy :remember_id
@@ -8,7 +8,14 @@ class Item < ActiveRecord::Base
 
   monetize :price, :as => "cost"
 
-  has_one :type
+  validates :name, :presence => true
+  validates :image, :presence => true
+  validates :price, :presence => true
+  validates :category_id, :presence => true
+  # validates_numericality_of :price, :greater_than_or_equal_to => 1, :message => "Cannot have a price less than £0.01"
+  
+  belongs_to :type
+  belongs_to :category
 
   def remember_id
     @id = id

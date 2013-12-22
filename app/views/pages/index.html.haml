@@ -6,20 +6,20 @@
     %ul.nav.well
       //TODO get this styling out of here
       %div{:style => 'margin-left: 10px;'}
-        %li.h4.a{:href => '#'} Text
-        -size = 1
-        -while size < 20 do
-          %li 
-          = size += 1
-        
+        - @categories.each do |category|
+          %li.h4.a{:href => '#'}
+            = category.name
+            - @types.each do |type|
+              - if category.id == type.category_id
+                %li
+                  = type.category.name
 
-.row.col-lg-10
-  - @items.each do |item|
-    .col-lg-2
-      %a.thumbnail{:href => "#"}
-        =image_tag("templateimg.png")
-      .caption
-        %h5 
-          = item.name
-        = currency_symbol
-        = item.cost
+        
+- @items.each do |item|
+  .col-lg-3
+    = link_to image_tag("/uploads/#{item.id}/thumb_#{File.basename(item.image.url)}"), item
+    .caption
+      %h5 
+        = item.name
+      = currency_symbol
+      = item.cost

@@ -1,0 +1,23 @@
+= link_to new_category_path, :class => 'btn btn-primary' do
+  New Category
+
+%h1 Category Management
+%table#display.table.table-striped
+  %thead
+    %th Name
+    %th Types
+    %th 
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td 
+          = category.name
+        %td
+          = p "get Category substypes"
+        %td.actions
+          = link_to category, class: 'btn btn-info btn-mini', title: "View Item" do
+            View
+          = link_to [:edit, category], class: 'btn btn-info btn-mini', title: "Edit Item" do
+            Edit
+          = link_to Category, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
+            Delete

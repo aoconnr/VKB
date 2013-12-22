@@ -1,0 +1,23 @@
+= link_to new_type_path, :class => 'btn btn-primary' do
+  New Type
+
+%h1 Type Management
+%table#display.table.table-striped
+  %thead
+    %th Name
+    %th Category
+    %th 
+  %tbody
+    - @types.each do |type|
+      %tr
+        %td 
+          = type.name
+        %td
+          = type.category.name
+        %td.actions
+          = link_to type, class: 'btn btn-info btn-mini', title: "View Type" do
+            View
+          = link_to [:edit, type], class: 'btn btn-info btn-mini', title: "Edit Item" do
+            Edit
+          = link_to Type, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Type" do
+            Delete

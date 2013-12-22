@@ -1,0 +1,29 @@
+
+%table#line_items
+  %tr
+    %th Product
+    %th Qty
+    %th.price Unit Price
+    %th.price Full Price
+  - for line_item in @cart.line_items
+    %tr
+      %td
+        = line_item.item.name
+      %td.qty
+        = line_item.quantity
+      %td.price
+        = number_to_currency(line_item.unit_price)
+      %td.price
+        = number_to_currency(line_item.full_price)
+      %td
+        = link_to line_item, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
+          Delete
+  %tr
+    %td.total.price{:colspan => "4"}
+      Total: #{number_to_currency @cart.total_price}
+%p
+  = link_to "Continue Shopping", items_path
+  = form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
+    = hidden_field_tag :cmd, "_s-xclick"
+    = hidden_field_tag :encrypted, @cart.paypal_encrypted(items_url, payment_notifications_url(:secret => "secret"))
+    %p= submit_tag "Checkout"

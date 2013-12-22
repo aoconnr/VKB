@@ -1,3 +1,6 @@
+= link_to new_item_path, :class => 'btn btn-primary' do
+  New Item
+
 %h1 Item index
 %table#display.table.table-striped
   %thead
@@ -17,11 +20,8 @@
           = item.cost
         %td.actions
           = link_to item, class: 'btn btn-info btn-mini', title: "View Item" do
-            %i.icon-eye-open.icon-white
             View
           = link_to [:edit, item], class: 'btn btn-info btn-mini', title: "Edit Item" do
-            %i.icon-pencil.icon-white
             Edit
           = link_to item, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
-            %i.icon-trash.icon-white
             Delete

@@ -12,6 +12,8 @@ class ItemsController<ApplicationController
 
   def new
     @item = Item.new
+    @categories = Category.all
+    @types = Type.all
   end
 
   def create
@@ -25,6 +27,8 @@ class ItemsController<ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @categories = Category.all
+    @types = Type.all
   end
 
   def update

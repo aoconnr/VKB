@@ -1,0 +1,9 @@
+%h1 New Category Type
+= simple_form_for(@type) do |f|
+  %fieldset.form-horizontal
+    %legend Category Details
+    .form-inputs
+      = f.input :name
+      = f.collection_select :category_id, @categories, :id, :name
+  .form-actions
+    = f.button :submit, :class => "btn btn-primary"

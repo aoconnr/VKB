@@ -7,5 +7,6 @@
       = f.input :image
       = f.input :price
 
+      = f.grouped_collection_select :type_id, Category.order(:name), :types, :name, :id, :name, :prompt => "-- Select Item Type --"
   .form-actions
     = f.button :submit, :class => "btn btn-primary"

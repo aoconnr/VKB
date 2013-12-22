@@ -6,3 +6,5 @@
   %br
   = currency_symbol
   = @item.cost
+
+= link_to "Add to Cart", line_items_path(:product_id => @item.id), :method => :post

@@ -2,8 +2,15 @@ VKB::Application.routes.draw do
 
   resources :pages
   resources :items
+  resources :categories
+  resources :types
+  resources :line_items
+  resources :carts
+  resources :payment_notifications
   
   root to: 'pages#index'
+
+  match '/current_cart', :controller => 'carts', :action => 'show', :id => 'current'
 
   match '/admin', to: 'pages#admin'
 

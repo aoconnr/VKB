@@ -1,0 +1,8 @@
+%h1 New Category
+= simple_form_for(@category) do |f|
+  %fieldset.form-horizontal
+    %legend Category Details
+    .form-inputs
+      = f.input :name
+  .form-actions
+    = f.button :submit, :class => "btn btn-primary"
