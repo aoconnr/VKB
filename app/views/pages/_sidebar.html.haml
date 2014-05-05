@@ -1,0 +1,9 @@
+%ul.nav.well
+  //TODO get this styling out of here
+  %div{:style => 'margin-left: 10px;'}
+    - Category.all.each do |category|
+      %h5
+        =link_to category.name, controller: "pages", action: "category", id: category.id
+      - category.types.each do |type|
+        %li
+          = link_to type.name, controller: "pages", action: "type", id: type.id

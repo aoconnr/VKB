@@ -1,5 +1,5 @@
 %h1 New Item
-= simple_form_for(@item, :defaults => { :input_html => { :class => 'input-xxlarge' } }, :html => {:multipart => true}) do |f|
+= simple_form_for(@item, :defaults => { :input_html => { :class => 'input-xxlarge'} }, :html => {:multipart => true, :novalidate => true}) do |f|
   %fieldset.form-horizontal
     %legend Item Details
     .form-inputs
@@ -8,5 +8,5 @@
       = f.input :price
 
       = f.grouped_collection_select :type_id, Category.order(:name), :types, :name, :id, :name, :prompt => "-- Select Item Type --"
-  .form-actions
-    = f.button :submit, :class => "btn btn-primary"
+    .form-actions
+      = f.button :submit, :class => "btn btn-primary"

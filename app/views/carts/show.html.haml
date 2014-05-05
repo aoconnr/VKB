@@ -12,18 +12,20 @@
       %td.qty
         = line_item.quantity
       %td.price
-        = number_to_currency(line_item.unit_price)
-      %td.price
-        = number_to_currency(line_item.full_price)
+        = number_to_currency(line_item.cost)
+        = number_to_currency(line_item.total_cost)
       %td
         = link_to line_item, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
           Delete
   %tr
     %td.total.price{:colspan => "4"}
       Total: #{number_to_currency @cart.total_price}
-%p
-  = link_to "Continue Shopping", items_path
-  = form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
-    = hidden_field_tag :cmd, "_s-xclick"
-    = hidden_field_tag :encrypted, @cart.paypal_encrypted(items_url, payment_notifications_url(:secret => "secret"))
-    %p= submit_tag "Checkout"
+
+/ TODO AOC requires check that cart is not empty
+- if @cart.line_items.count > 0
+  %p
+    = link_to "Continue Shopping", items_path
+    = form_tag "https://www.sandbox.paypal.com/cgi-bin/webscr" do
+      = hidden_field_tag :cmd, "_s-xclick"
+      = hidden_field_tag :encrypted, @cart.paypal_encrypted(items_url, payment_notifications_url(:secret => "secret"))
+      %p= submit_tag "Checkout"

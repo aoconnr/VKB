@@ -1,6 +1,6 @@
 = link_to new_item_path, :class => 'btn btn-primary' do
   New Item
-
+  
 %h1 Item index
 %table#display.table.table-striped
   %thead
@@ -12,7 +12,7 @@
     - @items.each do |item|
       %tr
         %td 
-          = item.name
+          = item.name.to_s + ' (' + item.type.name.to_s + ')'
         %td
           = link_to image_tag("/uploads/#{item.id}/thumb_#{File.basename(item.image.url)}"), item
         %td

@@ -7,8 +7,8 @@
       current image:
       %br
       = image_tag("/uploads/#{@item.id}/thumb_#{File.basename(@item.image.url)}")
-      = f.input :image
       = f.input :price 
 
+      = f.grouped_collection_select :type_id, Category.order(:name), :types, :name, :id, :name
   .form-actions
     = f.button :submit, :class => "btn btn-primary"

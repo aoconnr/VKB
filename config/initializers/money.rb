@@ -61,7 +61,7 @@ MoneyRails.configure do |config|
   config.register_currency = {
     :priority            => 1,
     :iso_code            => "GBP",
-    :name                => "Pund Sterling",
+    :name                => "Pound Sterling",
     :symbol              => "£",
     :symbol_first        => true,
     :subunit             => "Pence",

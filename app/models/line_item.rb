@@ -3,7 +3,10 @@ class LineItem < ActiveRecord::Base
 
   belongs_to :cart
   belongs_to :item
-  
+
+  monetize :unit_price, :as => "cost"
+  monetize :full_price, :as => "total_cost"
+
   def full_price
     unit_price * quantity
   end

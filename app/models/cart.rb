@@ -5,7 +5,7 @@ class Cart < ActiveRecord::Base
   
   def total_price
     # convert to array so it doesn't try to do sum on database directly
-    line_items.to_a.sum(&:full_price)
+    line_items.to_a.sum(&:total_cost)
   end
 
   # def paypal_url(return_url)
@@ -39,7 +39,7 @@ class Cart < ActiveRecord::Base
 
     line_items.each_with_index do |item, index|
       values.merge!({
-        "amount_#{index+1}" => item.unit_price,
+        "amount_#{index+1}" => item.cost,
         "item_name_#{index+1}" => item.item.name,
         "item_number_#{index+1}" => item.id,
         "quantity_#{index+1}" => item.quantity

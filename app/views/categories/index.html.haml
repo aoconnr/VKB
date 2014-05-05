@@ -12,6 +12,9 @@
       %tr
         %td 
           = category.name
+          ( 
+          = category.id
+          )
         %td
           = p "get Category substypes"
         %td.actions
@@ -19,5 +22,5 @@
             View
           = link_to [:edit, category], class: 'btn btn-info btn-mini', title: "Edit Item" do
             Edit
-          = link_to Category, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
+          = link_to category, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger btn-mini', title: "Delete Item" do
             Delete

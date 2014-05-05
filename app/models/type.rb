@@ -2,5 +2,5 @@ class Type < ActiveRecord::Base
   attr_accessible :name, :category_id
 
   belongs_to :category, :inverse_of => :types
-  has_many :items
+  has_many :items, :inverse_of => :type
 end

@@ -1,5 +1,7 @@
 class ItemsController<ApplicationController
 
+  http_basic_authenticate_with name: "admin", password: "password", :except => [:index, :show, :download]
+
   def index
     @items = Item.all
     render
@@ -18,10 +20,12 @@ class ItemsController<ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @item.price = params[:item][:price].to_f * 100
     if @item.save
       redirect_to items_path, notice: 'Item was successfully created.'
     else
-      render action: "new"
+      @item.price = params[:item][:price]
+      render action: "new", notice: 'create failed'
     end
   end
 
@@ -32,6 +36,7 @@ class ItemsController<ApplicationController
   end
 
   def update
+    puts params.inspect
     @item = Item.find(params[:id])
     if @item.update_attributes(params[:item])
       redirect_to items_path, notice: 'Item was successfully updated.'

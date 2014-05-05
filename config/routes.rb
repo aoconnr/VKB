@@ -10,11 +10,14 @@ VKB::Application.routes.draw do
   
   root to: 'pages#index'
 
+  
   match '/current_cart', :controller => 'carts', :action => 'show', :id => 'current'
-
   match '/admin', to: 'pages#admin'
 
   match "/uploads/:id/:basename.:extension", :controller => "items", :action => "download", :conditions => { :method => :get }
+  match '/:id', :controller => 'pages', :action => 'category'
+  match '/type/:id', :controller => 'pages', :action => 'type'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

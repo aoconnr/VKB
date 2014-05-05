@@ -1,0 +1,12 @@
+- unless @items.blank? then
+  = puts @items.inspect
+  - @items.each do |item|
+    .col-lg-3
+      = link_to image_tag("/uploads/#{item.id}/thumb_#{File.basename(item.image.url)}"), item
+      .caption
+        %h5 
+          = item.name
+        = currency_symbol
+        = item.cost 
+-else
+  %p No items found
